@@ -1,0 +1,15 @@
+@import url("a11yreset.css");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  color-scheme: only light;
+}
+
+body {
+  display: flex;
+  font-family: 'Source Code Pro', sans-serif;
+  flex-direction: column;
+}

@@ -1,4 +1,4 @@
-import type { MetaFunction } from "@remix-run/cloudflare";
+import type { LinksFunction, MetaFunction } from "@remix-run/cloudflare"
 import {
   Links,
   LiveReload,
@@ -6,13 +6,18 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
-} from "@remix-run/react";
+} from "@remix-run/react"
+import appStyles from "~/styles/app.css"
 
 export const meta: MetaFunction = () => ({
   charset: "utf-8",
   title: "New Remix App",
   viewport: "width=device-width,initial-scale=1",
-});
+})
+
+export const links: LinksFunction = () => {
+  return [{ rel: "stylesheet", href: appStyles }]
+}
 
 export default function App() {
   return (
@@ -28,5 +33,5 @@ export default function App() {
         <LiveReload />
       </body>
     </html>
-  );
+  )
 }
