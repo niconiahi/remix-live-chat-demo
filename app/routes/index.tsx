@@ -1,16 +1,16 @@
-import type { ActionArgs } from "@remix-run/cloudflare"
-import { json } from "@remix-run/cloudflare"
-import { Form } from "@remix-run/react"
+import type { ActionArgs } from "@remix-run/cloudflare";
+import { json } from "@remix-run/cloudflare";
+import { Form } from "@remix-run/react";
 
 export async function action({ request }: ActionArgs) {
-  const formData = await request.formData()
-  const name = formData.get("name")
+  const formData = await request.formData();
+  const name = formData.get("name");
 
   if (typeof name !== "string" || !name) {
-    throw json({ error: "Name must be provided" }, { status: 404 })
+    throw json({ error: "Name must be provided" }, { status: 404 });
   }
 
-  return json({ name })
+  return json({ name });
 }
 
 export default function Index() {
@@ -22,5 +22,5 @@ export default function Index() {
       </p>
       <button type="submit">Use this name</button>
     </Form>
-  )
+  );
 }
