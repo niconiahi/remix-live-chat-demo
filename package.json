@@ -1,6 +1,7 @@
 {
   "private": true,
   "sideEffects": false,
+  "type": "module",
   "scripts": {
     "start": "cross-env NODE_ENV=production miniflare ./build/index.js",
     "build": "remix build",
@@ -8,7 +9,6 @@
     "dev": "remix build && run-p \"dev:*\"",
     "dev:css": "cross-env NODE_ENV=development npm run generate:css -- --watch",
     "dev:remix": "remix watch",
-    "dev:miniflare": "cross-env NODE_ENV=development miniflare ./build/index.js --watch",
     "generate:css": "postcss styles --base styles --dir app/styles"
   },
   "dependencies": {
@@ -30,7 +30,6 @@
     "eslint": "^8.32.0",
     "eslint-config-prettier": "^8.6.0",
     "eslint-plugin-prettier": "^4.2.1",
-    "miniflare": "^2.11.0",
     "npm-run-all": "^4.1.5",
     "postcss": "^8.4.21",
     "postcss-cli": "^10.1.0",
