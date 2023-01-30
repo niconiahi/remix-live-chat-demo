@@ -1,11 +1,23 @@
-name = "remix-cloudflare-workers"
-
-workers_dev = true
-main = "./build/index.js"
+name = "remix-live-chat-demo"
+main = "src/worker.mjs"
 compatibility_date = "2022-04-05"
 
-[site]
-  bucket = "./public"
+[[migrations]]
+tag = "v1"
+new_classes = ["Room"]
 
-[build]
-  command = "npm run build"
+[vars]
+ORIGIN_URL = "https://8w3tpor496.execute-api.us-west-2.amazonaws.com"
+
+[durable_objects]
+bindings = [
+  { name = "room", class_name = "Room" },
+]
+
+[env.local.vars]
+ORIGIN_URL = "http://localhost:3333"
+
+[env.local.durable_objects]
+bindings = [
+  { name = "room", class_name = "Room" },
+]
